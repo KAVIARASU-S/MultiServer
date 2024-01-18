@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package= "/home/kaviarasus/MultiServerArchitecture/PowerPlantManagementApplication/proto";
+
+package company;
+
+message Company {
+    string CompanyName = 1;
+    string CEO =2;
+}
+
+service CompanyService {
+    rpc DisplayCompany (Empty) returns (CompanyResponse);
+    rpc InsertCompany (Company) returns (Empty);
+}
+
+message Empty {}
+message CompanyResponse{
+    repeated Company companies =1;
+}
